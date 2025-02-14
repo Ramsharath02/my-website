@@ -34,16 +34,18 @@ jobs:
 
       - name: Install dependencies
         run: |
-          cd frontend  # Adjust path to where your package.json is located
+          cd frontend  # Adjust path if necessary
           npm install
 
       - name: Build the project
-        run: npm run build  # Or `yarn build`
+        run: |
+          cd frontend  # Run build from the correct directory
+          npm run build  # Or `yarn build`
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './build'  # Replace with your actual build folder
+          path: './build'  # Ensure this is the correct build folder
 
       - name: Deploy to GitHub Pages
         id: deployment
