@@ -24,11 +24,21 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: List files (debugging)
+        run: ls -R  # List all files to check package.json location
+
       - name: Install dependencies
-        run: npm install
+        run: |
+          cd frontend  # Change to the directory containing package.json
+          npm install
 
       - name: Build the project
-        run: npm run build
+        run: npm run build  # Or `yarn build`
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
