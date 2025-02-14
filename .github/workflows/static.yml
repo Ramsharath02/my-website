@@ -25,15 +25,12 @@ jobs:
         uses: actions/checkout@v3
 
       - name: List files in the repository (debugging)
-        run: ls -R  # Check the files and directories in the repository
-
-      - name: Build the project (if applicable)
-        run: echo "No build step required"  # Skip build if no build step is needed
+        run: ls -R  # List all files to ensure everything is in place
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './'  # Upload everything in the root directory
+          path: './'  # Upload everything from the root directory (ensure this matches your structure)
 
       - name: Deploy to GitHub Pages
         id: deployment
