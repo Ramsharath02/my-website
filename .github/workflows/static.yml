@@ -25,12 +25,12 @@ jobs:
         uses: actions/checkout@v3
 
       - name: List files in the repository (debugging)
-        run: ls -R  # List all files to ensure everything is in place
+        run: ls -R ./  # Ensure files are there before uploading
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './'  # Upload everything from the root directory (ensure this matches your structure)
+          path: './'  # Ensure this points to the correct directory or files
 
       - name: Deploy to GitHub Pages
         id: deployment
