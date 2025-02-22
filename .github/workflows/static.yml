@@ -24,13 +24,35 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+<<<<<<< HEAD
       - name: List files in the repository (debugging)
         run: ls -R ./  # Ensure files are there before uploading
+=======
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: List files in the repository (debugging)
+        run: ls -R  # Check if package.json is present and in the correct directory
+
+      - name: Install dependencies
+        run: |
+          cd frontend  # Adjust path to where your package.json is located
+          npm install
+
+      - name: Build the project
+        run: npm run build  # Or `yarn build`
+>>>>>>> 231ff95 (u1)
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
+<<<<<<< HEAD
           path: './'  # Ensure this points to the correct directory or files
+=======
+          path: './build'  # Replace with your actual build folder
+>>>>>>> 231ff95 (u1)
 
       - name: Deploy to GitHub Pages
         id: deployment
