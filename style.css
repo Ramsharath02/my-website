@@ -1410,6 +1410,7 @@ textarea.form-input::-webkit-resizer { display: none; }
   .testimonials-avatar-box {
     transform: translate(30px, -30px);
     border-radius: 20px;
+    
   }
 
   .testimonials-avatar-box img { width: 80px; }
